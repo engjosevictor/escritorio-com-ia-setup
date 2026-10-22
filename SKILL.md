@@ -694,7 +694,41 @@ Se o usuário mencionar uma ferramenta que não está no catálogo (comum em eng
 
 > "Não tenho um conector pronto pra [ferramenta], mas isso normalmente funciona bem como arquivo local que o Claude lê direto (planilha, PDF, DXF) em vez de precisar de um MCP. Se depois você achar que existe um MCP pra ela, me passa que eu instalo."
 
-### 8. Gerar `MAPA-DE-PASTAS.md` na raiz do workspace do aluno
+### 8. Instalar a skill de manutenção `atualizar-escritorio`
+
+Essa skill já nasce instalada junto com o setup, sem o aluno precisar clonar um segundo repositório. Criar o arquivo `.claude/skills/atualizar-escritorio/SKILL.md` no workspace do aluno com o conteúdo completo abaixo (copiar exatamente, sem adaptar nada ao perfil do usuário, a skill já é genérica):
+
+```markdown
+---
+name: atualizar-escritorio
+description: >
+  Varredura completa pra sincronizar o AGENTS.md e os arquivos de contexto
+  do escritório com o estado real do workspace (pastas, skills instaladas,
+  MCPs conectados, mudanças recentes). Use quando o aluno chamar
+  /atualizar-escritorio, ou disser "atualiza o contexto", "roda uma varredura",
+  "será que o AGENTS.md está desatualizado", ou sempre que o indicador de
+  contexto restante do Claude Code estiver ficando baixo numa conversa longa,
+  antes do auto-compactamento acontecer.
+---
+
+# /atualizar-escritorio — Manutenção de Contexto do Escritório
+
+Este é um comando para sincronizar a documentação do escritório com o estado real dele, e também pra não perder informação importante de uma conversa longa antes do sistema resumir sozinho (auto-compactamento). Quanto mais cedo rodar, antes do indicador de contexto restante chegar perto do fim, melhor: o resumo automático guarda só o essencial, e o que não foi salvo em arquivo até lá se perde. O processo ocorre em cinco etapas:
+
+**Levantamento do estado atual:** Lista a estrutura de pastas do escritório (`[Nome do Escritório]/Projetos/`, `Marca/`, `Site/`, `Conteudo/`, `Gestao/`, `Estudos/`, `Portfolio/`, e qualquer subpasta de cliente, proposta, orçamento ou contrato que já exista), skills instaladas (`.claude/skills/` e `~/.claude/skills/`), MCPs conectados, arquivos recentemente modificados e mudanças não commitadas (se o workspace usar Git).
+
+**Leitura dos arquivos de contexto:** Examina `AGENTS.md` (ou `CLAUDE.md`, se for o arquivo principal usado), `_contexto/empresa.md`, `_contexto/estrategia.md`, `_contexto/preferencias.md` e `[Nome do Escritório]/Marca/design-guide.md`, focando no que cada um deveria registrar: quem é o escritório e o que entrega, foco atual, tom de voz e identidade visual de documento.
+
+**Comparação:** Verifica se as pastas, skills e ferramentas documentadas no `AGENTS.md` correspondem à realidade do workspace; identifica cliente novo, projeto novo, ferramenta conectada ou skill criada que ainda não apareceu nos arquivos de contexto; identifica também decisões ou correções importantes que surgiram na conversa atual e ainda não foram salvas em nenhum arquivo.
+
+**Diagnóstico:** Apresenta um relatório estruturado mostrando o que está em dia, o que precisa atualização e o que falta configurar. Se a varredura foi disparada por causa do indicador de contexto restante (e não por pedido direto do aluno), avisar isso na abertura do relatório, ex. "Rodando antes do resumo automático, pra não perder o que decidimos nessa conversa."
+
+**Aplicação de correções:** Propõe mudanças específicas para aprovação do aluno, alterando apenas as linhas relevantes de cada arquivo, sem reformatar documentos inteiros.
+
+**Princípios:** Não inventa informação que não apareceu no workspace nem na conversa. Questiona em caso de dúvida em vez de assumir. Respeita a preferência do aluno sobre aprovar cada mudança antes de salvar. Evita atualizações desnecessárias em workspaces recém-configurados (ex. logo depois de rodar o setup inicial).
+```
+
+### 9. Gerar `MAPA-DE-PASTAS.md` na raiz do workspace do aluno
 
 Último arquivo a ser gerado, depois que toda a estrutura de pastas (seção 6) já estiver criada. Funciona como índice único: quem abrir o projeto pela primeira vez entende rápido onde fica cada coisa, sem precisar abrir pasta por pasta.
 
@@ -737,6 +771,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 > - `[Nome do Escritório]/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao][, Estudos], Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
 > - MAPA-DE-PASTAS.md — índice de tudo que foi criado, pra não se perder na estrutura
 > - [N] MCPs instalados / [N] anotados pra instalar depois
+> - `/atualizar-escritorio` já instalado — use antes do indicador de contexto restante zerar numa conversa longa, pra não perder decisão importante no resumo automático
 >
 > **Duas coisas importantes antes de continuar:**
 >
