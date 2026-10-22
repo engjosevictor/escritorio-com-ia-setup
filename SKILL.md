@@ -694,24 +694,24 @@ Se o usuário mencionar uma ferramenta que não está no catálogo (comum em eng
 
 > "Não tenho um conector pronto pra [ferramenta], mas isso normalmente funciona bem como arquivo local que o Claude lê direto (planilha, PDF, DXF) em vez de precisar de um MCP. Se depois você achar que existe um MCP pra ela, me passa que eu instalo."
 
-### 8. Instalar a skill de manutenção `atualizar-escritorio`
+### 8. Instalar a skill de manutenção `atualizar`
 
-Essa skill já nasce instalada junto com o setup, sem o aluno precisar clonar um segundo repositório. Criar o arquivo `.claude/skills/atualizar-escritorio/SKILL.md` no workspace do aluno com o conteúdo completo abaixo (copiar exatamente, sem adaptar nada ao perfil do usuário, a skill já é genérica):
+Essa skill já nasce instalada junto com o setup, sem o aluno precisar clonar um segundo repositório. Criar o arquivo `.claude/skills/atualizar/SKILL.md` no workspace do aluno com o conteúdo completo abaixo (copiar exatamente, sem adaptar nada ao perfil do usuário, a skill já é genérica):
 
 ```markdown
 ---
-name: atualizar-escritorio
+name: atualizar
 description: >
   Varredura completa pra sincronizar o AGENTS.md e os arquivos de contexto
   do escritório com o estado real do workspace (pastas, skills instaladas,
   MCPs conectados, mudanças recentes). Use quando o aluno chamar
-  /atualizar-escritorio, ou disser "atualiza o contexto", "roda uma varredura",
+  /atualizar, ou disser "atualiza o contexto", "roda uma varredura",
   "será que o AGENTS.md está desatualizado", ou sempre que o indicador de
   contexto restante do Claude Code estiver ficando baixo numa conversa longa,
   antes do auto-compactamento acontecer.
 ---
 
-# /atualizar-escritorio — Manutenção de Contexto do Escritório
+# /atualizar — Manutenção de Contexto do Escritório
 
 Este é um comando para sincronizar a documentação do escritório com o estado real dele, e também pra não perder informação importante de uma conversa longa antes do sistema resumir sozinho (auto-compactamento). Quanto mais cedo rodar, antes do indicador de contexto restante chegar perto do fim, melhor: o resumo automático guarda só o essencial, e o que não foi salvo em arquivo até lá se perde. O processo ocorre em cinco etapas:
 
@@ -771,7 +771,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 > - `[Nome do Escritório]/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao][, Estudos], Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
 > - MAPA-DE-PASTAS.md — índice de tudo que foi criado, pra não se perder na estrutura
 > - [N] MCPs instalados / [N] anotados pra instalar depois
-> - `/atualizar-escritorio` já instalado — use antes do indicador de contexto restante zerar numa conversa longa, pra não perder decisão importante no resumo automático
+> - `/atualizar` já instalado — use antes do indicador de contexto restante zerar numa conversa longa, pra não perder decisão importante no resumo automático
 >
 > **Duas coisas importantes antes de continuar:**
 >
