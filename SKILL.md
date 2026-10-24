@@ -22,6 +22,17 @@ Antes de qualquer coisa, verifique se `_contexto/empresa.md` existe e tem conte�
 
 ## Onboarding (primeira vez)
 
+### Passo 0 — Ponte com o Codex (silencioso)
+
+Antes de qualquer pergunta, sem avisar nada ao usuário a não ser que falhe: detectar o sistema operacional e rodar o script de ponte que já vem dentro desta mesma skill, em `scripts/`:
+
+- Mac/Linux (`uname` responde `Linux` ou `Darwin`): `bash .claude/skills/setup-escritorio/scripts/sync-ponte.sh`
+- Windows (inclusive Git Bash, onde `uname` responde `MINGW*`/`MSYS*`): `powershell -ExecutionPolicy Bypass -File .claude/skills/setup-escritorio/scripts/sync-ponte.ps1`
+
+Esse script cria `.agents/skills` apontando pra `.claude/skills` (symlink no Mac/Linux, junction no Windows, que não exige privilégio de administrador) e é seguro rodar de novo a qualquer momento, não quebra se o link já existir. É isso que garante que qualquer skill criada daqui pra frente, pelo Claude Code ou direto em `.claude/skills/`, também funcione automaticamente no Codex, sem precisar repetir instrução manual a cada skill nova. A instrução manual do README ("primeira vez no Codex", pedindo pra ler o `SKILL.md` direto) continua valendo só pra essa primeira execução, porque o script da ponte só existe depois que o setup já rodou uma vez e colocou os arquivos no disco: antes disso não tem o que sincronizar.
+
+Rodar em silêncio; só reportar ao usuário se o script falhar (ex. sem permissão de criar link nem symlink nem junction).
+
 Antes da primeira pergunta, criar a pasta `dados/` vazia (se ainda não existir). Isso garante que, quando alguma pergunta pedir pra colocar arquivo ali (logo, print, documento antigo), a pasta já exista e o usuário não fique sem onde colocar o arquivo no meio da entrevista.
 
 Comece com uma mensagem curta de boas-vindas:
@@ -153,6 +164,22 @@ Aguardar o usuário colar a resposta. Com o que vier:
 
 *(Exemplos: Eberick, TQS, AutoCAD, SMath Studio, Excel/Google Sheets pra orçamento, Notion, Google Drive, Gmail, WhatsApp Business, algum CRM, qualquer uma que use com frequência)*
 
+Depois da resposta aberta, perguntar especificamente por cada uma dessas frentes que todo escritório de engenharia tem, em conversa, uma a uma ou agrupando as que fizerem sentido juntas (não como formulário):
+
+1. Comunicação com cliente (WhatsApp, e-mail)
+2. Agenda e prazo de entrega
+3. Controle financeiro (recebimento, parcela)
+4. Ficha e histórico de cada cliente
+5. Reunião (gravação, ata)
+6. Orçamento e proposta
+7. Projeto técnico em si (CRM, planilha)
+
+Pra cada uma, perguntar o que o aluno já usa hoje, deixando claro que "nada" é resposta válida:
+
+> "E pra [frente], você usa alguma coisa hoje, planilha, app, papel, ou ainda não tem nada organizado pra isso?"
+
+Garantir que as sete fiquem respondidas (mesmo que a resposta seja "nada") antes de seguir pra Pergunta 6. Guardar a resposta de cada frente pra gerar o `_contexto/integracoes.md` no final (item 5 de "O que gerar"), sem inventar ferramenta que o aluno não citou.
+
 ### Pergunta 6 — Identidade visual de documento
 
 "Seu escritório tem identidade visual pra proposta, orçamento e contrato? Logo, cores, CREA/CAU no rodapé? Se sim, como prefere compartilhar?"
@@ -200,7 +227,7 @@ Trate como pergunta padrão, não condicional: todo escritório que prospecta cl
 
 - **Se usa a mesma identidade do documento:** não duplica nada, só marca no `[Nome do Escritório] OS/Marca/design-guide.md` que a mesma paleta/logo vale pros dois usos.
 - **Se tem uma identidade diferente pra conteúdo** (cores mais vivas, fonte diferente, tom mais informal): seguir o mesmo fluxo de coleta da Pergunta 6 (URL, imagem, descrição em texto, ou "ainda não tenho"), e preencher uma seção separada **Identidade de conteúdo** no `[Nome do Escritório] OS/Marca/design-guide.md`, pra não misturar com o que vale em documento técnico.
-- **Se ainda não produz conteúdo:** perguntar se é algo que pretende estruturar (isso ajuda a decidir se a pasta `conteudo/` entra na estrutura de pastas do passo 6, ou se fica de fora até o escritório realmente precisar dela).
+- **Se ainda não produz conteúdo:** perguntar se é algo que pretende estruturar (isso ajuda a decidir se a pasta `conteudo/` entra na estrutura de pastas do passo 7, ou se fica de fora até o escritório realmente precisar dela).
 
 ### Pergunta 7
 "Como você prefere que o Claude escreva pros seus textos? O que mais incomoda em textos gerados por IA?"
@@ -499,9 +526,29 @@ Quando o usuário pedir pra criar uma nova skill de engenharia (ex. padrão de m
 [qualquer outra preferência mencionada]
 ```
 
-### 5. Pré-preencher `[Nome do Escritório] OS/Marca/design-guide.md`
+### 5. Criar `_contexto/integracoes.md`
 
-Esse arquivo mora dentro da pasta `Marca/` criada no passo 6, junto com o logo. Gerar a pasta (passo 6) antes de preencher este arquivo, mesmo que a numeração venha antes na lista.
+Uma linha por frente das sete perguntadas no final da Pergunta 5, marcando **ligada** (o aluno já usa alguma ferramenta pra isso) ou **não ligada** (respondeu "nada"). Nunca inventar ferramenta que o aluno não citou.
+
+```markdown
+# Integrações do Escritório — [Nome]
+
+| Frente | Ferramenta hoje | Status |
+|---|---|---|
+| Comunicação com cliente | [citada ou "nenhuma"] | ligada / não ligada |
+| Agenda e prazo de entrega | [citada ou "nenhuma"] | ligada / não ligada |
+| Controle financeiro | [citada ou "nenhuma"] | ligada / não ligada |
+| Ficha e histórico de cliente | [citada ou "nenhuma"] | ligada / não ligada |
+| Reunião (gravação, ata) | [citada ou "nenhuma"] | ligada / não ligada |
+| Orçamento e proposta | [citada ou "nenhuma"] | ligada / não ligada |
+| Projeto técnico (CRM, planilha) | [citada ou "nenhuma"] | ligada / não ligada |
+```
+
+Esse arquivo é o mapa de onde o escritório já tem alguma ferramenta rodando e onde está em aberto, pra orientar sugestão futura de MCP, skill nova, ou o CRM do Módulo 2 do curso.
+
+### 6. Pré-preencher `[Nome do Escritório] OS/Marca/design-guide.md`
+
+Esse arquivo mora dentro da pasta `Marca/` criada no passo 7, junto com o logo. Gerar a pasta (passo 7) antes de preencher este arquivo, mesmo que a numeração venha antes na lista.
 
 Esse guia aqui é enxuto de propósito: serve pra calibrar documento de cliente (proposta, orçamento, contrato, relatório técnico, link de acompanhamento de obra), não pra feed de rede social. Se o usuário descreveu cores e estilo, preencha com o que foi dito. Se não tem identidade definida, preencha com campos em branco e um comentário orientando como preencher depois.
 
@@ -521,7 +568,7 @@ Em ambos os casos, manter este aviso no topo do arquivo (logo abaixo do título)
 > Skills de conteúdo (se o escritório usar) leem a seção de Identidade de conteúdo.
 ```
 
-### 6. Escolher estrutura de pastas
+### 7. Escolher estrutura de pastas
 
 Antes de criar qualquer pasta, **mostrar ao usuário o que você pensou** e deixar ele ajustar.
 
@@ -560,10 +607,12 @@ Depois de coletar as respostas do bloco, apresentar o resumo antes de criar:
 MAPA-DE-PASTAS.md
 ```
 
+Toda pasta criada por este setup que nascer sem nenhum arquivo dentro (sem README, sem subpasta de projeto, sem nada) recebe um arquivo `.gitkeep` vazio dentro dela. O Git não versiona pasta vazia, então sem isso a pasta criada agora "some" quando o aluno conectar o workspace ao GitHub depois (ver Mensagem final). Isso vale pra qualquer pasta do bloco, inclusive `Gestao/` quando criada vazia (Pergunta 13) e qualquer subpasta extra da Pergunta 16 que ainda não tenha conteúdo.
+
 Regras de criação por subpasta:
 
 - **`Projetos/`** — sempre criada. Se o usuário citou um projeto específico na Pergunta 9, criar a subpasta dele já com esse nome. Deixar claro no README que a pasta aceita arquivo técnico, conversa de WhatsApp e gravação de reunião do mesmo projeto, tudo junto.
-- **`Marca/`** — sempre criada. É onde o arquivo de logo e as referências de cor coletadas nas Perguntas 6, 6.5 e 10 vão fisicamente morar (se o usuário já tinha mandado o logo antes da Pergunta 10, mover/salvar o arquivo pra dentro dessa pasta agora), junto com o `design-guide.md` (passo 5), que agora vive dentro dela em vez de na raiz do workspace.
+- **`Marca/`** — sempre criada. É onde o arquivo de logo e as referências de cor coletadas nas Perguntas 6, 6.5 e 10 vão fisicamente morar (se o usuário já tinha mandado o logo antes da Pergunta 10, mover/salvar o arquivo pra dentro dessa pasta agora), junto com o `design-guide.md` (passo 6), que agora vive dentro dela em vez de na raiz do workspace.
 - **`Site/`** — sempre criada. README resume status do site, hospedagem e domínio coletados na Pergunta 11. Se ficou pendência de conectar FTP, isso vai pra `tarefas.md`, não pro README (README é estático, descreve a pasta; tarefas.md é a lista viva de pendências).
 - **`Conteudo/`** — sempre criada. Guarda os prints de referência pedidos na Pergunta 12, se houver.
 - **`Gestao/`** — condicional: só criar se a resposta da Pergunta 13 for afirmativa. Fica vazia até o aluno chegar no Módulo 2 do curso.
@@ -663,7 +712,7 @@ curriculo/
 tarefas.md
 ```
 
-### 7. Recomendar MCPs e ferramentas
+### 8. Recomendar MCPs e ferramentas
 
 Cruzar com as ferramentas que o usuário citou na Pergunta 5, priorizando os conectores que sustentam a operação do escritório, não os de criação de conteúdo:
 
@@ -697,7 +746,7 @@ Se o usuário mencionar uma ferramenta que não está no catálogo (comum em eng
 
 > "Não tenho um conector pronto pra [ferramenta], mas isso normalmente funciona bem como arquivo local que o Claude lê direto (planilha, PDF, DXF) em vez de precisar de um MCP. Se depois você achar que existe um MCP pra ela, me passa que eu instalo."
 
-### 8. Instalar a skill de manutenção `atualizar`
+### 9. Instalar a skill de manutenção `atualizar`
 
 Essa skill já nasce instalada junto com o setup, sem o aluno precisar clonar um segundo repositório. Criar o arquivo `.claude/skills/atualizar/SKILL.md` no workspace do aluno com o conteúdo completo abaixo (copiar exatamente, sem adaptar nada ao perfil do usuário, a skill já é genérica):
 
@@ -731,7 +780,7 @@ Este é um comando para sincronizar a documentação do escritório com o estado
 **Princípios:** Não inventa informação que não apareceu no workspace nem na conversa. Questiona em caso de dúvida em vez de assumir. Respeita a preferência do aluno sobre aprovar cada mudança antes de salvar. Evita atualizações desnecessárias em workspaces recém-configurados (ex. logo depois de rodar o setup inicial).
 ```
 
-### 9. Gerar `MAPA-DE-PASTAS.md` na raiz do workspace do aluno
+### 10. Gerar `MAPA-DE-PASTAS.md` na raiz do workspace do aluno
 
 Último arquivo a ser gerado, depois que toda a estrutura de pastas (seção 6) já estiver criada. Funciona como índice único: quem abrir o projeto pela primeira vez entende rápido onde fica cada coisa, sem precisar abrir pasta por pasta.
 
@@ -753,12 +802,22 @@ Listar só o que foi realmente criado (pular `Gestao/` ou `Estudos/` se não ent
 [demais pastas da Pergunta 16, se houver]
 
 ## Fora da pasta do escritório
-- `_contexto/` — quem você é, foco atual e preferências de tom, lido no início de toda conversa
+- `_contexto/` — quem você é, foco atual, preferências de tom e mapa de integrações (`integracoes.md`), lido no início de toda conversa
 - `dados/` — arquivos soltos pra análise (imagem, planilha, print)
 - `tarefas.md` — pendências e próximos passos anotados pelo sistema
 ```
 
 Esse arquivo só se aplica (nesse formato) ao perfil `escritorio-tecnico`. Pra outros perfis, adaptar a lista de pastas pro template que foi efetivamente usado.
+
+### 11. Teste de aceite
+
+Último passo antes da mensagem final, com o usuário acompanhando. Reler **do disco** os quatro arquivos principais gerados (`AGENTS.md`, `_contexto/empresa.md`, `_contexto/estrategia.md`, `_contexto/preferencias.md`), como se fosse o início de uma conversa nova, sem usar o que ficou na memória da entrevista.
+
+Com o que foi relido, apresentar um resumo de 3 fatos concretos, extraídos de verdade do conteúdo dos arquivos, pra confirmação:
+
+> "Pra conferir: pelo que ficou salvo, você é [fato real de `empresa.md`], seu foco agora é [fato real de `estrategia.md`], e comigo você quer [uma preferência real de `preferencias.md`]. Bateu?"
+
+Se o usuário apontar algo errado ou incompleto, corrigir o arquivo correspondente na hora (edição pontual, sem reformatar o arquivo inteiro) e mostrar a linha corrigida antes de seguir pra mensagem final.
 
 ---
 
@@ -770,7 +829,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 >
 > Aqui está o que foi criado:
 > - AGENTS.md — o Claude agora sabe quem você é, o que seu escritório entrega e onde fica cada coisa
-> - _contexto/ — escritório, preferências e foco atual salvos
+> - _contexto/ — escritório, preferências, foco atual e mapa de integrações (`integracoes.md`) salvos
 > - `[Nome do Escritório] OS/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao][, Estudos], Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
 > - MAPA-DE-PASTAS.md — índice de tudo que foi criado, pra não se perder na estrutura
 > - [N] MCPs instalados / [N] anotados pra instalar depois
