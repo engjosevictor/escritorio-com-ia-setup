@@ -22,9 +22,13 @@ Antes de qualquer coisa, verifique se `_contexto/empresa.md` existe e tem conte�
 
 ## Onboarding (primeira vez)
 
-### Passo 0 — Ponte com o Codex (silencioso)
+### Passo 0 — Preparação silenciosa (antes de qualquer pergunta)
 
-Antes de qualquer pergunta, sem avisar nada ao usuário a não ser que falhe: detectar o sistema operacional e rodar o script de ponte que já vem dentro desta mesma skill, em `scripts/`:
+Duas ações obrigatórias, nessa ordem, antes de escrever a mensagem de boas-vindas. Sem avisar nada ao usuário a não ser que alguma falhe:
+
+**0.1 — Criar a pasta `dados/` vazia** (se ainda não existir). Isso garante que, quando alguma pergunta mais adiante pedir pra colocar arquivo ali (logo, print, documento antigo), a pasta já exista e o usuário não fique sem onde colocar o arquivo no meio da entrevista. Não pule esse passo mesmo que pareça prematuro, ele precisa acontecer aqui, não só quando a pergunta do arquivo chegar.
+
+**0.2 — Ponte com o Codex.** Detectar o sistema operacional e rodar o script de ponte que já vem dentro desta mesma skill, em `scripts/`:
 
 - Mac/Linux (`uname` responde `Linux` ou `Darwin`): `bash .claude/skills/setup-escritorio/scripts/sync-ponte.sh`
 - Windows (inclusive Git Bash, onde `uname` responde `MINGW*`/`MSYS*`): `powershell -ExecutionPolicy Bypass -File .claude/skills/setup-escritorio/scripts/sync-ponte.ps1`
@@ -33,9 +37,7 @@ Esse script cria `.agents/skills` apontando pra `.claude/skills` (symlink no Mac
 
 Rodar em silêncio; só reportar ao usuário se o script falhar (ex. sem permissão de criar link nem symlink nem junction).
 
-Antes da primeira pergunta, criar a pasta `dados/` vazia (se ainda não existir). Isso garante que, quando alguma pergunta pedir pra colocar arquivo ali (logo, print, documento antigo), a pasta já exista e o usuário não fique sem onde colocar o arquivo no meio da entrevista.
-
-Comece com uma mensagem curta de boas-vindas:
+Com as duas ações do Passo 0 feitas, comece com uma mensagem curta de boas-vindas:
 
 > "Boa. Vou te fazer algumas perguntas pra configurar o sistema pro seu escritório. Responde com calma, quanto mais específico, melhor o sistema vai trabalhar pra ti."
 
