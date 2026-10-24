@@ -4,16 +4,16 @@ Skill do Claude Code.
 
 ## Instalação
 
-Dentro da pasta do seu projeto (funciona igual no Windows, Mac e Linux, caminho relativo, sem `~`):
+Passo 1, dentro da pasta do seu projeto:
 
 ```
-git clone https://github.com/engjosevictor/escritorio-com-ia-setup.git .claude/skills/setup-escritorio
+git clone https://github.com/engjosevictor/escritorio-com-ia-setup.git
 ```
 
-Se você também usa Codex, clone de novo numa segunda pasta, pra ele enxergar a skill também:
+Passo 2, peça pro Claude (ou Codex) organizar:
 
 ```
-git clone https://github.com/engjosevictor/escritorio-com-ia-setup.git .agents/skills/setup-escritorio
+Organiza a skill que acabei de clonar: copia SKILL.md e README.md de escritorio-com-ia-setup/ para .claude/skills/setup-escritorio/ (e também para .agents/skills/setup-escritorio/ se eu usar Codex), depois apaga a pasta escritorio-com-ia-setup/
 ```
 
 ## Uso
