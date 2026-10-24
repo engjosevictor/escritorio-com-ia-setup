@@ -22,6 +22,8 @@ Antes de qualquer coisa, verifique se `_contexto/empresa.md` existe e tem conte�
 
 ## Onboarding (primeira vez)
 
+Antes da primeira pergunta, criar a pasta `dados/` vazia (se ainda não existir). Isso garante que, quando alguma pergunta pedir pra colocar arquivo ali (logo, print, documento antigo), a pasta já exista e o usuário não fique sem onde colocar o arquivo no meio da entrevista.
+
 Comece com uma mensagem curta de boas-vindas:
 
 > "Boa. Vou te fazer algumas perguntas pra configurar o sistema pro seu escritório. Responde com calma, quanto mais específico, melhor o sistema vai trabalhar pra ti."
