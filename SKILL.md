@@ -163,7 +163,7 @@ Apresentar as opções de forma natural, não como lista formal:
 - Analisar: cores dominantes, tipografia aparente, estilo geral
 - Apresentar o que foi detectado antes de preencher o design-guide:
   > "Vi no seu site: fundo [cor], destaque em [cor], tipografia sem serifa. Bate com a identidade que você usa em documento?"
-- Ajustar conforme feedback e preencher `[Nome do Escritório]/Marca/design-guide.md`
+- Ajustar conforme feedback e preencher `[Nome do Escritório] OS/Marca/design-guide.md`
 
 **Se compartilhar imagens (logo, print de proposta antiga, etc.):**
 - Pedir pro usuário colocar os arquivos na pasta `dados/` e informar os nomes
@@ -172,10 +172,10 @@ Apresentar as opções de forma natural, não como lista formal:
 - Apresentar o que foi detectado antes de preencher, igual ao fluxo de URL
 
 **Se descrever em texto:**
-- Usar a descrição diretamente pra preencher `[Nome do Escritório]/Marca/design-guide.md`
+- Usar a descrição diretamente pra preencher `[Nome do Escritório] OS/Marca/design-guide.md`
 
 **Se ainda não tiver definido:**
-- Preencher o `[Nome do Escritório]/Marca/design-guide.md` com campos em branco e orientações pra preencher depois
+- Preencher o `[Nome do Escritório] OS/Marca/design-guide.md` com campos em branco e orientações pra preencher depois
 - Mencionar brevemente: "Sem problema, você preenche quando tiver. O Claude usa um visual neutro de documento técnico até lá."
 
 **Logo (perguntar em todos os casos acima):**
@@ -184,7 +184,7 @@ Após resolver cores e estilo, perguntar:
 
 > "Tem o logo do escritório em PNG ou SVG? Se tiver, joga na pasta `dados/` e me diz o nome do arquivo (depois eu levo pra pasta `Marca/` do escritório). Se tiver uma versão pra fundo escuro e outra pra fundo claro, manda as duas."
 
-- Se o usuário fornecer: preencher a seção **Logo** do `[Nome do Escritório]/Marca/design-guide.md` com o caminho do arquivo e a variação (se houver)
+- Se o usuário fornecer: preencher a seção **Logo** do `[Nome do Escritório] OS/Marca/design-guide.md` com o caminho do arquivo e a variação (se houver)
 - Se não tiver logo: deixar a seção Logo em branco no design-guide
 
 Essa parte cobre só o que aparece em documento de cliente (proposta, orçamento, contrato, relatório, link de acompanhamento de obra).
@@ -195,8 +195,8 @@ Essa parte cobre só o que aparece em documento de cliente (proposta, orçamento
 
 Trate como pergunta padrão, não condicional: todo escritório que prospecta cliente novo acaba precisando de algum conteúdo (mesmo que seja só o Instagram do escritório), então vale perguntar sempre, não só se o usuário trouxer o assunto sozinho.
 
-- **Se usa a mesma identidade do documento:** não duplica nada, só marca no `[Nome do Escritório]/Marca/design-guide.md` que a mesma paleta/logo vale pros dois usos.
-- **Se tem uma identidade diferente pra conteúdo** (cores mais vivas, fonte diferente, tom mais informal): seguir o mesmo fluxo de coleta da Pergunta 6 (URL, imagem, descrição em texto, ou "ainda não tenho"), e preencher uma seção separada **Identidade de conteúdo** no `[Nome do Escritório]/Marca/design-guide.md`, pra não misturar com o que vale em documento técnico.
+- **Se usa a mesma identidade do documento:** não duplica nada, só marca no `[Nome do Escritório] OS/Marca/design-guide.md` que a mesma paleta/logo vale pros dois usos.
+- **Se tem uma identidade diferente pra conteúdo** (cores mais vivas, fonte diferente, tom mais informal): seguir o mesmo fluxo de coleta da Pergunta 6 (URL, imagem, descrição em texto, ou "ainda não tenho"), e preencher uma seção separada **Identidade de conteúdo** no `[Nome do Escritório] OS/Marca/design-guide.md`, pra não misturar com o que vale em documento técnico.
 - **Se ainda não produz conteúdo:** perguntar se é algo que pretende estruturar (isso ajuda a decidir se a pasta `conteudo/` entra na estrutura de pastas do passo 6, ou se fica de fora até o escritório realmente precisar dela).
 
 ### Pergunta 7
@@ -213,7 +213,7 @@ Trate como pergunta padrão, não condicional: todo escritório que prospecta cl
 
 ## Bloco: Estrutura de pastas do escritório
 
-A partir daqui, as perguntas servem pra montar a estrutura de pastas real do aluno: uma pasta raiz com o nome do escritório (ex. `Nome do Escritório/`), e dentro dela uma subpasta por frente de trabalho, cada uma com sua própria pergunta. Continue em conversa natural, uma pergunta de cada vez.
+A partir daqui, as perguntas servem pra montar a estrutura de pastas real do aluno: uma pasta raiz com o nome do escritório (ex. `Nome do Escritório OS/`), e dentro dela uma subpasta por frente de trabalho, cada uma com sua própria pergunta. Continue em conversa natural, uma pergunta de cada vez.
 
 Introduza o bloco com uma frase curta:
 
@@ -364,7 +364,7 @@ No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem
 
 Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 
-Pra qualquer documento de cliente (proposta, orçamento, contrato, relatório), consultar `[Nome do Escritório]/Marca/design-guide.md` como referência de estilo.
+Pra qualquer documento de cliente (proposta, orçamento, contrato, relatório), consultar `[Nome do Escritório] OS/Marca/design-guide.md` como referência de estilo.
 
 Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o contexto naturalmente.
 
@@ -415,7 +415,7 @@ Se sim, identificar o que precisa atualizar:
 - **Mudança de prioridade ou foco** → `_contexto/estrategia.md`
 - **Correção de tom ou estilo** → `_contexto/preferencias.md`
 - **Nova pasta, regra de organização, skill criada** → `AGENTS.md`
-- **Mudança visual (cores, fontes, logo de documento)** → `[Nome do Escritório]/Marca/design-guide.md`
+- **Mudança visual (cores, fontes, logo de documento)** → `[Nome do Escritório] OS/Marca/design-guide.md`
 
 Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo inteiro, só adicionar ou editar a linha relevante.
 
@@ -496,7 +496,7 @@ Quando o usuário pedir pra criar uma nova skill de engenharia (ex. padrão de m
 [qualquer outra preferência mencionada]
 ```
 
-### 5. Pré-preencher `[Nome do Escritório]/Marca/design-guide.md`
+### 5. Pré-preencher `[Nome do Escritório] OS/Marca/design-guide.md`
 
 Esse arquivo mora dentro da pasta `Marca/` criada no passo 6, junto com o logo. Gerar a pasta (passo 6) antes de preencher este arquivo, mesmo que a numeração venha antes na lista.
 
@@ -522,11 +522,11 @@ Em ambos os casos, manter este aviso no topo do arquivo (logo abaixo do título)
 
 Antes de criar qualquer pasta, **mostrar ao usuário o que você pensou** e deixar ele ajustar.
 
-Pra perfil `escritorio-tecnico` (o padrão esperado neste curso), a estrutura não é mais uma lista fixa: ela é montada com base nas respostas do bloco **Estrutura de pastas do escritório** (Perguntas 9 a 16). Tudo mora dentro de uma pasta raiz com o nome do escritório informado na Pergunta 1 (ex. `Nome do Escritório/`), com uma subpasta por frente de trabalho. Pra outros perfis, seguir os templates de referência mais abaixo.
+Pra perfil `escritorio-tecnico` (o padrão esperado neste curso), a estrutura não é mais uma lista fixa: ela é montada com base nas respostas do bloco **Estrutura de pastas do escritório** (Perguntas 9 a 16). Tudo mora dentro de uma pasta raiz com o nome do escritório informado na Pergunta 1 (ex. `Nome do Escritório OS/`), com uma subpasta por frente de trabalho. Pra outros perfis, seguir os templates de referência mais abaixo.
 
 Depois de coletar as respostas do bloco, apresentar o resumo antes de criar:
 
-> "Com base no que você me contou, vou montar essa estrutura dentro de `[Nome do Escritório]/`:
+> "Com base no que você me contou, vou montar essa estrutura dentro de `[Nome do Escritório] OS/`:
 >
 > ```
 > [lista de pastas que serão criadas, já refletindo o que foi dito em cada pergunta]
@@ -537,7 +537,7 @@ Depois de coletar as respostas do bloco, apresentar o resumo antes de criar:
 **Estrutura do escritório técnico (padrão deste curso):**
 
 ```
-[Nome do Escritório]/
+[Nome do Escritório] OS/
   Projetos/
     README.md
     <subpasta por projeto citado na Pergunta 9>
@@ -715,9 +715,9 @@ description: >
 
 Este é um comando para sincronizar a documentação do escritório com o estado real dele, e também pra não perder informação importante de uma conversa longa antes do sistema resumir sozinho (auto-compactamento). Quanto mais cedo rodar, antes do indicador de contexto restante chegar perto do fim, melhor: o resumo automático guarda só o essencial, e o que não foi salvo em arquivo até lá se perde. O processo ocorre em cinco etapas:
 
-**Levantamento do estado atual:** Lista a estrutura de pastas do escritório (`[Nome do Escritório]/Projetos/`, `Marca/`, `Site/`, `Conteudo/`, `Gestao/`, `Estudos/`, `Portfolio/`, e qualquer subpasta de cliente, proposta, orçamento ou contrato que já exista), skills instaladas (`.claude/skills/` e `~/.claude/skills/`), MCPs conectados, arquivos recentemente modificados e mudanças não commitadas (se o workspace usar Git).
+**Levantamento do estado atual:** Lista a estrutura de pastas do escritório (`[Nome do Escritório] OS/Projetos/`, `Marca/`, `Site/`, `Conteudo/`, `Gestao/`, `Estudos/`, `Portfolio/`, e qualquer subpasta de cliente, proposta, orçamento ou contrato que já exista), skills instaladas (`.claude/skills/` e `~/.claude/skills/`), MCPs conectados, arquivos recentemente modificados e mudanças não commitadas (se o workspace usar Git).
 
-**Leitura dos arquivos de contexto:** Examina `AGENTS.md` (ou `CLAUDE.md`, se for o arquivo principal usado), `_contexto/empresa.md`, `_contexto/estrategia.md`, `_contexto/preferencias.md` e `[Nome do Escritório]/Marca/design-guide.md`, focando no que cada um deveria registrar: quem é o escritório e o que entrega, foco atual, tom de voz e identidade visual de documento.
+**Leitura dos arquivos de contexto:** Examina `AGENTS.md` (ou `CLAUDE.md`, se for o arquivo principal usado), `_contexto/empresa.md`, `_contexto/estrategia.md`, `_contexto/preferencias.md` e `[Nome do Escritório] OS/Marca/design-guide.md`, focando no que cada um deveria registrar: quem é o escritório e o que entrega, foco atual, tom de voz e identidade visual de documento.
 
 **Comparação:** Verifica se as pastas, skills e ferramentas documentadas no `AGENTS.md` correspondem à realidade do workspace; identifica cliente novo, projeto novo, ferramenta conectada ou skill criada que ainda não apareceu nos arquivos de contexto; identifica também decisões ou correções importantes que surgiram na conversa atual e ainda não foram salvas em nenhum arquivo.
 
@@ -739,7 +739,7 @@ Listar só o que foi realmente criado (pular `Gestao/` ou `Estudos/` se não ent
 
 Índice rápido de onde fica cada coisa nesse workspace. Atualize essa lista sempre que criar ou renomear uma pasta grande.
 
-## [Nome do Escritório]/
+## [Nome do Escritório] OS/
 - `Projetos/` — projeto em andamento ou arquivado, junto com conversa de WhatsApp e gravação de reunião de cada um
 - `Marca/` — logo, variações, referência de cor do escritório e o `design-guide.md` que as skills leem pra gerar documento e conteúdo
 - `Site/` — status do site institucional, hospedagem e domínio
@@ -768,7 +768,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 > Aqui está o que foi criado:
 > - AGENTS.md — o Claude agora sabe quem você é, o que seu escritório entrega e onde fica cada coisa
 > - _contexto/ — escritório, preferências e foco atual salvos
-> - `[Nome do Escritório]/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao][, Estudos], Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
+> - `[Nome do Escritório] OS/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao][, Estudos], Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
 > - MAPA-DE-PASTAS.md — índice de tudo que foi criado, pra não se perder na estrutura
 > - [N] MCPs instalados / [N] anotados pra instalar depois
 > - `/atualizar` já instalado — use antes do indicador de contexto restante zerar numa conversa longa, pra não perder decisão importante no resumo automático
