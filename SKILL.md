@@ -164,13 +164,13 @@ Aguardar o usuário colar a resposta. Com o que vier:
 
 *(Exemplos: Eberick, TQS, AutoCAD, SMath Studio, Excel/Google Sheets pra orçamento, Notion, Google Drive, Gmail, WhatsApp Business, algum CRM, qualquer uma que use com frequência)*
 
-Depois da resposta aberta, fazer UMA pergunta só cobrindo as frentes que todo escritório de engenharia tem, sem virar interrogatório:
+Depois da resposta aberta, fazer UMA pergunta só cobrindo 3 frentes bem objetivas, sem virar interrogatório:
 
-> "E rapidinho, pra essas coisas aqui você já usa algo organizado ou ainda tá solto: comunicação com cliente, agenda e prazo, financeiro, histórico de cada cliente, reunião, orçamento e proposta, e o controle do projeto em si? Pode responder correndo, tipo 'financeiro numa planilha, o resto é tudo solto'."
+> "E rapidinho, pra essas três coisas você já usa algo organizado ou ainda tá solto: comunicação com cliente, financeiro (recebimento e parcela), e histórico de cada cliente (o que já foi combinado, decisão de reunião, pendência)? Pode responder correndo, tipo 'financeiro numa planilha, o resto é tudo solto'."
 
-Deixar claro que "tudo solto" ou "nada organizado" é resposta válida e normal. Se a resposta do aluno já cobrir as sete frentes (mesmo que agrupando várias como "solto"), seguir direto pra Pergunta 6. Só fazer pergunta de volta, pontual, pra alguma frente específica que ficou ambígua ou não foi mencionada (ex. "e reunião, grava ou registra de alguma forma?"), sem reabrir as que já ficaram claras.
+Deixar claro que "tudo solto" ou "nada organizado" é resposta válida e normal. Se a resposta do aluno já cobrir as três frentes (mesmo que agrupando como "solto"), seguir direto pra Pergunta 6. Só fazer pergunta de volta, pontual, pra alguma frente que ficou ambígua, sem reabrir as que já ficaram claras.
 
-Guardar a resposta de cada frente (comunicação com cliente, agenda/prazo, financeiro, ficha de cliente, reunião, orçamento/proposta, projeto técnico) pra gerar o `_contexto/integracoes.md` no final (item 5 de "O que gerar"), sem inventar ferramenta que o aluno não citou.
+Guardar a resposta de cada frente (comunicação com cliente, financeiro, histórico de cliente) pra gerar o `_contexto/integracoes.md` no final (item 5 de "O que gerar"), sem inventar ferramenta que o aluno não citou. As outras frentes do fluxo (agenda, orçamento, proposta, controle de projeto) ficam de fora de propósito, porque são justamente o que o módulo 2 (CRM) vai instalar.
 
 ### Pergunta 6 — Identidade visual de documento
 
@@ -520,7 +520,7 @@ Quando o usuário pedir pra criar uma nova skill de engenharia (ex. padrão de m
 
 ### 5. Criar `_contexto/integracoes.md`
 
-Uma linha por frente das sete perguntadas no final da Pergunta 5, marcando **ligada** (o aluno já usa alguma ferramenta pra isso) ou **não ligada** (respondeu "nada"). Nunca inventar ferramenta que o aluno não citou.
+Uma linha por frente das três perguntadas no final da Pergunta 5, marcando **ligada** (o aluno já usa alguma ferramenta pra isso) ou **não ligada** (respondeu "nada"). Nunca inventar ferramenta que o aluno não citou.
 
 ```markdown
 # Integrações do Escritório — [Nome]
