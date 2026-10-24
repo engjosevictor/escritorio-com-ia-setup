@@ -33,9 +33,9 @@ Faça as perguntas em sequência, uma por vez, em conversa natural. Não liste t
 
 ### Pergunta 2 — Verificação de histórico
 
-"Você já usa o Claude Code há algum tempo, ou é a primeira vez?"
+"Você já usa o Claude Code ou o Codex há algum tempo, ou é a primeira vez?"
 
-**Se já usa há algum tempo:** perguntar:
+**Se já usa Claude Code ou Codex há algum tempo:** perguntar:
 
 > "Quer que eu tente carregar o que você já tem configurado em outros projetos, ou prefere configurar do zero aqui?"
 
@@ -51,11 +51,12 @@ Faça as perguntas em sequência, uma por vez, em conversa natural. Não liste t
 
 ---
 
-#### Bloco: Carregamento de contexto existente (Claude Code anterior)
+#### Bloco: Carregamento de contexto existente (Claude Code ou Codex anterior)
 
 Tentar ler, nessa ordem:
 1. `~/.claude/CLAUDE.md` — CLAUDE.md global (se existir)
 2. Arquivos de memória em `~/.claude/projects/` — procurar por arquivos relevantes (escritório, clientes, preferências)
+3. `AGENTS.md` ou `CLAUDE.md` na raiz de algum projeto que o usuário já tenha usado com Codex (o Codex lê o mesmo tipo de arquivo de instrução, se o usuário indicar o caminho de um projeto anterior, ler o `AGENTS.md` de lá)
 
 Com o que encontrar, montar um resumo e apresentar ao usuário:
 
