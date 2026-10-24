@@ -530,12 +530,8 @@ Uma linha por frente das três perguntadas no final da Pergunta 5, marcando **li
 | Frente | Ferramenta hoje | Status |
 |---|---|---|
 | Comunicação com cliente | [citada ou "nenhuma"] | ligada / não ligada |
-| Agenda e prazo de entrega | [citada ou "nenhuma"] | ligada / não ligada |
 | Controle financeiro | [citada ou "nenhuma"] | ligada / não ligada |
-| Ficha e histórico de cliente | [citada ou "nenhuma"] | ligada / não ligada |
-| Reunião (gravação, ata) | [citada ou "nenhuma"] | ligada / não ligada |
-| Orçamento e proposta | [citada ou "nenhuma"] | ligada / não ligada |
-| Projeto técnico (CRM, planilha) | [citada ou "nenhuma"] | ligada / não ligada |
+| Histórico e pendência de cliente | [citada ou "nenhuma"] | ligada / não ligada |
 ```
 
 Esse arquivo é o mapa de onde o escritório já tem alguma ferramenta rodando e onde está em aberto, pra orientar sugestão futura de MCP, skill nova, ou o CRM do Módulo 2 do curso.
