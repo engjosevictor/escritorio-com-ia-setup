@@ -174,13 +174,15 @@ Deixar claro que "tudo solto" ou "nada organizado" é resposta válida e normal.
 
 Guardar a resposta de cada frente (comunicação com cliente, financeiro, histórico de cliente) pra gerar o `_contexto/integracoes.md` no final (item 5 de "O que gerar"), sem inventar ferramenta que o aluno não citou. As outras frentes do fluxo (agenda, orçamento, proposta, controle de projeto) ficam de fora de propósito, porque são justamente o que o módulo 2 (CRM) vai instalar.
 
-### Pergunta 6 — Identidade visual de documento
+### Pergunta 6 — Marca e identidade
 
-"Seu escritório tem identidade visual pra proposta, orçamento e contrato? Logo, cores, CREA/CAU no rodapé? Se sim, como prefere compartilhar?"
+**Blindagem obrigatória, antes de fazer a pergunta:** nunca use, cite ou preencha cor, logo, nome de arquivo ou qualquer dado de identidade visual que o aluno não tenha fornecido NESTA conversa, especificamente nesta pergunta (nem um link que ele mandou, nem um arquivo que ele colocou em `dados/`, nem uma descrição em texto que ele deu). Não existe "lembrar" de cor, logo ou identidade de nenhum workspace, projeto ou cliente que porventura esteja acessível no ambiente, mesmo que pareça familiar ou pareça o dado certo. Se o aluno ainda não respondeu nada sobre isso nesta conversa, a única ação válida é perguntar e esperar a resposta dele, nunca inventar, completar ou assumir um padrão.
+
+"Seu escritório tem identidade visual definida? Logo, cores, fonte, dados de assinatura (nome, CREA/CAU) pra proposta, orçamento e contrato? Se sim, como prefere compartilhar?"
 
 Apresentar as opções de forma natural, não como lista formal:
 
-> "Pode me mandar o link do seu site, jogar o logo e algum documento antigo na pasta `dados/` e me dizer o nome dos arquivos, descrever em texto mesmo (cores, nome que aparece na assinatura, registro no CREA/CAU), ou dizer que ainda não tem definido. Qualquer uma dessas funciona."
+> "Pode me mandar o link do seu site, jogar o logo e algum documento antigo na pasta `dados/` e me dizer o nome dos arquivos, descrever em texto mesmo (cores, fonte, nome que aparece na assinatura, registro no CREA/CAU), ou dizer que ainda não tem definido. Qualquer uma dessas funciona."
 
 **Se compartilhar URL:**
 - Buscar o conteúdo do site com WebFetch
@@ -202,6 +204,12 @@ Apresentar as opções de forma natural, não como lista formal:
 - Preencher o `[Nome do Escritório] OS/Marca/design-guide.md` com campos em branco e orientações pra preencher depois
 - Mencionar brevemente: "Sem problema, você preenche quando tiver. O Claude usa um visual neutro de documento técnico até lá."
 
+**Se o usuário não souber definir as cores** (disse "não tenho definido" ou só tem uma ideia vaga), oferecer:
+
+> "Se você não tem certeza das cores, pode me mandar uma referência, uma foto, um link de algo que você gosta, ou um print, que eu avalio e monto uma paleta próxima disso."
+
+Seguir o mesmo padrão de recebimento de informação já descrito acima (arquivo em `dados/`, link via WebFetch, ou descrição em texto).
+
 **Logo (perguntar em todos os casos acima):**
 
 Após resolver cores e estilo, perguntar:
@@ -211,17 +219,33 @@ Após resolver cores e estilo, perguntar:
 - Se o usuário fornecer: preencher a seção **Logo** do `[Nome do Escritório] OS/Marca/design-guide.md` com o caminho do arquivo e a variação (se houver)
 - Se não tiver logo: deixar a seção Logo em branco no design-guide
 
-Essa parte cobre só o que aparece em documento de cliente (proposta, orçamento, contrato, relatório, link de acompanhamento de obra).
+**Tipografia:**
 
-### Pergunta 6.5 — Identidade visual de marketing
+> "E a fonte que você usa em documento ou no logo, tem alguma definida? Pode me dizer o nome dela, ou mandar um exemplo de onde ela aparece."
 
-"E pra conteúdo e redes sociais (Instagram, YouTube, site), você já tem uma identidade visual definida, ou usa a mesma do documento?"
+**Se o usuário não souber a fonte**, deixar em aberto sem travar o resto do setup:
 
-Trate como pergunta padrão, não condicional: todo escritório que prospecta cliente novo acaba precisando de algum conteúdo (mesmo que seja só o Instagram do escritório), então vale perguntar sempre, não só se o usuário trouxer o assunto sozinho.
+> "Sem problema, deixa em branco por enquanto, você define isso depois e eu atualizo o `Marca/design-guide.md` quando tiver."
 
-- **Se usa a mesma identidade do documento:** não duplica nada, só marca no `[Nome do Escritório] OS/Marca/design-guide.md` que a mesma paleta/logo vale pros dois usos.
-- **Se tem uma identidade diferente pra conteúdo** (cores mais vivas, fonte diferente, tom mais informal): seguir o mesmo fluxo de coleta da Pergunta 6 (URL, imagem, descrição em texto, ou "ainda não tenho"), e preencher uma seção separada **Identidade de conteúdo** no `[Nome do Escritório] OS/Marca/design-guide.md`, pra não misturar com o que vale em documento técnico.
-- **Se ainda não produz conteúdo:** perguntar se é algo que pretende estruturar (isso ajuda a decidir se a pasta `conteudo/` entra na estrutura de pastas do passo 7, ou se fica de fora até o escritório realmente precisar dela).
+Preencher o campo de tipografia do `design-guide.md` com o que for informado, ou deixar como pendência comentada se o usuário não souber ainda.
+
+**Dados de assinatura (perguntar sempre):**
+
+> "E os dados que entram na assinatura de proposta e contrato: seu nome completo e o registro no CREA/CAU?"
+
+Preencher a seção de Identidade de documento com nome completo, registro e cargo, se informado.
+
+Essa parte toda cobre o que aparece em documento de cliente (proposta, orçamento, contrato, relatório, link de acompanhamento de obra).
+
+**Identidade de conteúdo (perguntar sempre, não condicional):**
+
+"E pra conteúdo e redes sociais (Instagram, YouTube, site), você usa a mesma identidade de documento, ou é diferente?"
+
+Trate como pergunta padrão: todo escritório que prospecta cliente novo acaba precisando de algum conteúdo (mesmo que seja só o Instagram do escritório), então vale perguntar sempre, não só se o usuário trouxer o assunto sozinho.
+
+- **Se usa a mesma identidade do documento:** não duplica nada, só marca no `[Nome do Escritório] OS/Marca/design-guide.md` que a mesma paleta/logo/fonte vale pros dois usos.
+- **Se tem uma identidade diferente pra conteúdo** (cores mais vivas, fonte diferente, tom mais informal): seguir o mesmo fluxo de coleta já descrito acima (URL, imagem, descrição em texto, ou "ainda não tenho"), e preencher uma seção separada **Identidade de conteúdo** no `[Nome do Escritório] OS/Marca/design-guide.md`, pra não misturar com o que vale em documento técnico.
+- **Se ainda não produz conteúdo:** perguntar se é algo que pretende estruturar (isso ajuda a decidir se a pasta `Conteudo/` entra na estrutura de pastas do passo 7, ou se fica de fora até o escritório realmente precisar dela).
 
 ### Pergunta 7
 "Como você prefere que o Claude escreva pros seus textos? O que mais incomoda em textos gerados por IA?"
@@ -252,30 +276,7 @@ Explicar que essa pasta não é só arquivo técnico:
 
 Se o usuário citar um projeto específico (em andamento ou antigo), anotar o nome pra criar a subpasta dele dentro de `Projetos/`.
 
-### Pergunta 10 — Marca
-Essa pergunta complementa o que já foi coletado nas Perguntas 6 e 6.5 (cores, logo, identidade de documento e de conteúdo). Aqui o objetivo é só organizar o que o usuário já tem dentro da pasta `Marca/` do escritório, e cobrir o caso de quem ainda não sabe definir as cores.
-
-"Você tem o logo e as cores do escritório já definidos? Se tiver, me manda o que já existe que eu guardo tudo dentro da pasta `Marca/`."
-
-Seguir o mesmo padrão de recebimento de arquivo já usado na Pergunta 6 (arquivo em `dados/`, ou descrever em texto mesmo).
-
-**Se o usuário mandar o logo**, perguntar também pela tipografia:
-
-> "E a fonte que você usa em documento ou no logo, tem alguma definida? Pode me dizer o nome dela, ou mandar um exemplo de onde ela aparece."
-
-**Se o usuário não souber a fonte**, deixar em aberto sem travar o resto do setup:
-
-> "Sem problema, deixa em branco por enquanto, você define isso depois e eu atualizo o `Marca/design-guide.md` quando tiver."
-
-Preencher o campo de tipografia do `design-guide.md` com o que for informado, ou deixar como pendência comentada se o usuário não souber ainda.
-
-**Se o usuário não sabe definir as cores do escritório** (disse "não tenho definido" ou só tem uma ideia vaga), oferecer:
-
-> "Se você não tem certeza das cores, pode me mandar uma referência, uma foto, um link de algo que você gosta, ou um print, que eu avalio e monto uma paleta próxima disso."
-
-Seguir o mesmo padrão de recebimento de arquivo (arquivo em `dados/`, link via WebFetch, ou descrição em texto).
-
-### Pergunta 11 — Site
+### Pergunta 10 — Site
 "Você já tem um site do escritório? Pretende reformular ele, ou ainda não tem nenhum?"
 
 Em seguida:
@@ -286,7 +287,7 @@ Conforme a resposta:
 - **Se planeja reformular ou criar site e ainda não tem hospedagem/domínio resolvido, ou tem mas o site ainda não está no ar:** anotar em `tarefas.md` uma próxima atividade de conectar a hospedagem via FTP, mencionando que a skill `deploy-hostinger` já existe pra isso quando o aluno estiver pronto pra subir o site.
 - **Se já tem site no ar e não pretende mexer por enquanto:** só registrar o status em `_contexto/empresa.md`, sem gerar tarefa.
 
-### Pergunta 12 — Conteudo
+### Pergunta 11 — Conteudo
 "Quais redes sociais você usa ou pretende usar pro escritório? Instagram, YouTube, LinkedIn, alguma outra?"
 
 Em seguida:
@@ -297,7 +298,7 @@ Conforme a resposta:
 - **Se o usuário já tem perfil ativo numa rede:** pedir pra ele mandar um print do Instagram (ou da rede que usar) pra guardar como referência, seguindo o mesmo padrão de receber arquivo em `dados/` já usado na Pergunta 6.
 - **Se ainda não tem perfil ativo:** só registrar a intenção, sem pedir print.
 
-### Pergunta 13 — Gestao
+### Pergunta 12 — Gestao
 "Quer que eu já crie uma pasta de Gestão aqui?"
 
 Explicar o propósito:
@@ -307,25 +308,15 @@ Explicar o propósito:
 - **Se sim:** criar a pasta (vazia, com README).
 - **Se não, ou "ainda não"**: não criar agora, mencionar que pode ser criada a qualquer momento quando o aluno chegar no Módulo 2.
 
-### Pergunta 14 — Estudos
-"Você já tem algum curso, arquivo no Notion ou outro app, Word, PDF de estudo, pós-graduação feita ou em andamento, ou alguma norma técnica que você consulta com frequência?"
-
-Conforme a resposta, criar uma subpasta dentro de `Estudos/` pra cada curso, pós ou norma que o usuário mencionar, nomeada com o nome real dele (não usar nomes genéricos tipo "curso1" ou "pos-graduacao"). Se o usuário não citar nada no momento, não criar `Estudos/` ainda, deixar como pendência fácil de criar depois.
-
-### Pergunta 15 — Portfolio
+### Pergunta 13 — Portfolio
 "Você já tem um portfólio, material que mostra projeto entregue pra apresentar pra cliente, arquiteto ou construtora? E pretende reformular ele?"
 
 Ampliar o escopo um pouco além de portfólio em sentido estrito:
 
 > "Também vale guardar aqui qualquer outro material de marketing e divulgação dos serviços do escritório, apresentação comercial, deck, qualquer coisa que você usa pra se vender."
 
-- **Se já tiver algum material desses:** pedir pra ele colocar o arquivo em `dados/` e informar o nome, mesmo padrão já usado nas Perguntas 6, 10 e 12.
+- **Se já tiver algum material desses:** pedir pra ele colocar o arquivo em `dados/` e informar o nome, mesmo padrão já usado nas Perguntas 6 e 11.
 - **Se ainda não tiver:** só registrar a intenção, sem pedir arquivo.
-
-### Pergunta 16 — Pergunta final
-"Tem mais alguma pasta que você ache interessante criar além dessas?"
-
-Criar conforme o usuário descrever, seguindo o mesmo padrão de README curto nas pastas maiores que ele pedir.
 
 ---
 
@@ -548,7 +539,7 @@ Campos a cobrir, seção **Identidade de documento**:
 - Logo (caminho do arquivo, variação clara/escura)
 - Dados de assinatura (nome completo, registro CREA/CAU, cargo) pra constar em proposta/contrato
 
-Se a Pergunta 6.5 trouxer identidade de conteúdo diferente da de documento, criar também uma seção **Identidade de conteúdo**, com os mesmos campos (cor, tipografia, logo) só que calibrados pro uso em rede social/site. Se o usuário respondeu que usa a mesma identidade dos dois casos, não duplicar, só anotar isso no topo da seção de documento ("vale também pra conteúdo").
+Se a Pergunta 6 trouxer identidade de conteúdo diferente da de documento (subseção "Identidade de conteúdo" dentro dela), criar também uma seção **Identidade de conteúdo**, com os mesmos campos (cor, tipografia, logo) só que calibrados pro uso em rede social/site. Se o usuário respondeu que usa a mesma identidade dos dois casos, não duplicar, só anotar isso no topo da seção de documento ("vale também pra conteúdo").
 
 Em ambos os casos, manter este aviso no topo do arquivo (logo abaixo do título):
 
@@ -562,7 +553,7 @@ Em ambos os casos, manter este aviso no topo do arquivo (logo abaixo do título)
 
 Antes de criar qualquer pasta, **mostrar ao usuário o que você pensou** e deixar ele ajustar.
 
-Pra perfil `escritorio-tecnico` (o padrão esperado neste curso), a estrutura não é mais uma lista fixa: ela é montada com base nas respostas do bloco **Estrutura de pastas do escritório** (Perguntas 9 a 16). Tudo mora dentro de uma pasta raiz com o nome do escritório informado na Pergunta 1 (ex. `Nome do Escritório OS/`), com uma subpasta por frente de trabalho. Pra outros perfis, seguir os templates de referência mais abaixo.
+Pra perfil `escritorio-tecnico` (o padrão esperado neste curso), a estrutura não é mais uma lista fixa: ela é montada com base nas respostas do bloco **Estrutura de pastas do escritório** (Perguntas 9 a 13). Tudo mora dentro de uma pasta raiz com o nome do escritório informado na Pergunta 1 (ex. `Nome do Escritório OS/`), com uma subpasta por frente de trabalho. Pra outros perfis, seguir os templates de referência mais abaixo.
 
 Depois de coletar as respostas do bloco, apresentar o resumo antes de criar:
 
@@ -587,28 +578,26 @@ Depois de coletar as respostas do bloco, apresentar o resumo antes de criar:
     README.md
   Conteudo/
     README.md
-  Gestao/              # só se a Pergunta 13 for "sim"
+  Gestao/              # só se a Pergunta 12 for "sim"
     README.md
-  Estudos/             # só se a Pergunta 14 trouxer algum curso/pós/norma
+  Estudos/
     README.md
-    <subpasta por curso/pós/norma citado, nomeada de verdade>
   Portfolio/
     README.md
 MAPA-DE-PASTAS.md
 ```
 
-Toda pasta criada por este setup que nascer sem nenhum arquivo dentro (sem README, sem subpasta de projeto, sem nada) recebe um arquivo `.gitkeep` vazio dentro dela. O Git não versiona pasta vazia, então sem isso a pasta criada agora "some" quando o aluno conectar o workspace ao GitHub depois (ver Mensagem final). Isso vale pra qualquer pasta do bloco, inclusive `Gestao/` quando criada vazia (Pergunta 13) e qualquer subpasta extra da Pergunta 16 que ainda não tenha conteúdo.
+Toda pasta criada por este setup que nascer sem nenhum arquivo dentro (sem README, sem subpasta de projeto, sem nada) recebe um arquivo `.gitkeep` vazio dentro dela. O Git não versiona pasta vazia, então sem isso a pasta criada agora "some" quando o aluno conectar o workspace ao GitHub depois (ver Mensagem final). Isso vale pra qualquer pasta do bloco, inclusive `Gestao/` quando criada vazia (Pergunta 12) e `Estudos/`, que nasce sempre vazia (ninguém pergunta curso/pós/norma na entrevista, o aluno preenche depois por conta própria).
 
 Regras de criação por subpasta:
 
 - **`Projetos/`** — sempre criada. Se o usuário citou um projeto específico na Pergunta 9, criar a subpasta dele já com esse nome. Deixar claro no README que a pasta aceita arquivo técnico, conversa de WhatsApp e gravação de reunião do mesmo projeto, tudo junto.
-- **`Marca/`** — sempre criada. É onde o arquivo de logo e as referências de cor coletadas nas Perguntas 6, 6.5 e 10 vão fisicamente morar (se o usuário já tinha mandado o logo antes da Pergunta 10, mover/salvar o arquivo pra dentro dessa pasta agora), junto com o `design-guide.md` (passo 6), que agora vive dentro dela em vez de na raiz do workspace.
-- **`Site/`** — sempre criada. README resume status do site, hospedagem e domínio coletados na Pergunta 11. Se ficou pendência de conectar FTP, isso vai pra `tarefas.md`, não pro README (README é estático, descreve a pasta; tarefas.md é a lista viva de pendências).
-- **`Conteudo/`** — sempre criada. Guarda os prints de referência pedidos na Pergunta 12, se houver.
-- **`Gestao/`** — condicional: só criar se a resposta da Pergunta 13 for afirmativa. Fica vazia até o aluno chegar no Módulo 2 do curso.
-- **`Estudos/`** — condicional: só criar se a Pergunta 14 trouxer pelo menos um curso, pós ou norma citado. Cada um vira uma subpasta com o nome real (nunca nome genérico).
-- **`Portfolio/`** — sempre criada. Guarda o material de portfólio (projetos entregues pra mostrar a cliente/arquiteto/construtora) e também apresentação comercial, deck ou qualquer material de divulgação dos serviços do escritório, coletados na Pergunta 15.
-- **Pastas extras da Pergunta 16** — criar conforme descrito, com README se for uma pasta grande (mesmo padrão das demais).
+- **`Marca/`** — sempre criada. É onde o arquivo de logo e as referências de cor coletadas na Pergunta 6 vão fisicamente morar, junto com o `design-guide.md` (passo 6), que agora vive dentro dela em vez de na raiz do workspace.
+- **`Site/`** — sempre criada. README resume status do site, hospedagem e domínio coletados na Pergunta 10. Se ficou pendência de conectar FTP, isso vai pra `tarefas.md`, não pro README (README é estático, descreve a pasta; tarefas.md é a lista viva de pendências).
+- **`Conteudo/`** — sempre criada. Guarda os prints de referência pedidos na Pergunta 11, se houver.
+- **`Gestao/`** — condicional: só criar se a resposta da Pergunta 12 for afirmativa. Fica vazia até o aluno chegar no Módulo 2 do curso.
+- **`Estudos/`** — sempre criada, vazia (sem pergunta própria na entrevista: a necessidade de curso/pós/norma surge com o tempo, não faz sentido perguntar no onboarding). O aluno adiciona subpasta por conta própria conforme for precisando, ou pede pro Claude criar depois.
+- **`Portfolio/`** — sempre criada. Guarda o material de portfólio (projetos entregues pra mostrar a cliente/arquiteto/construtora) e também apresentação comercial, deck ou qualquer material de divulgação dos serviços do escritório, coletados na Pergunta 13.
 
 Gerar um `README.md` curto dentro de cada subpasta maior (`Projetos/`, `Marca/`, `Site/`, `Conteudo/`, `Gestao/`, `Estudos/`, `Portfolio/`), explicando o que vai ali e como usar no dia a dia. Modelo de referência pra cada uma:
 
@@ -655,7 +644,7 @@ Aqui mora o aplicativo de gestão do escritório, instalado pelo Módulo 2 do cu
 ```markdown
 # Estudos
 
-Curso, pós-graduação, norma técnica ou qualquer material de estudo que você consulta com frequência. Cada subpasta leva o nome real do curso, pós ou norma, criada conforme você for adicionando material novo.
+Curso, pós-graduação, norma técnica ou qualquer material de estudo que você consulta com frequência. Essa pasta nasce vazia, sem subpasta nenhuma: crie uma por curso, pós ou norma conforme for precisando, nomeada com o nome real dele (nunca nome genérico tipo "curso1" ou "pos-graduacao").
 ```
 
 **`Portfolio/README.md`**
@@ -774,7 +763,7 @@ Este é um comando para sincronizar a documentação do escritório com o estado
 
 Último arquivo a ser gerado, depois que toda a estrutura de pastas (seção 6) já estiver criada. Funciona como índice único: quem abrir o projeto pela primeira vez entende rápido onde fica cada coisa, sem precisar abrir pasta por pasta.
 
-Listar só o que foi realmente criado (pular `Gestao/` ou `Estudos/` se não entraram, incluir qualquer pasta extra da Pergunta 16), com uma linha explicando o propósito de cada uma. Modelo:
+Listar só o que foi realmente criado (pular `Gestao/` se não entrou, já que é a única condicional da lista), com uma linha explicando o propósito de cada uma. Modelo:
 
 ```markdown
 # Mapa de Pastas — [Nome do Escritório]
@@ -787,9 +776,8 @@ Listar só o que foi realmente criado (pular `Gestao/` ou `Estudos/` se não ent
 - `Site/` — status do site institucional, hospedagem e domínio
 - `Conteudo/` — redes sociais, objetivos de conteúdo e referências salvas
 - `Gestao/` — aplicativo de gestão do escritório (Módulo 2 do curso) [incluir só se criada]
-- `Estudos/` — [listar as subpastas reais criadas, ex. "NBR 6118, Pós em Estruturas de Concreto"] [incluir só se criada]
+- `Estudos/` — curso, pós-graduação ou norma técnica de consulta frequente (nasce vazia, você adiciona conforme for precisando)
 - `Portfolio/` — material de portfólio e divulgação dos serviços do escritório
-[demais pastas da Pergunta 16, se houver]
 
 ## Fora da pasta do escritório
 - `_contexto/` — quem você é, foco atual, preferências de tom e mapa de integrações (`integracoes.md`), lido no início de toda conversa
@@ -820,7 +808,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 > Aqui está o que foi criado:
 > - AGENTS.md — o Claude agora sabe quem você é, o que seu escritório entrega e onde fica cada coisa
 > - _contexto/ — escritório, preferências, foco atual e mapa de integrações (`integracoes.md`) salvos
-> - `[Nome do Escritório] OS/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao][, Estudos], Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
+> - `[Nome do Escritório] OS/` — estrutura de pastas completa (Projetos, Marca, Site, Conteudo[, Gestao], Estudos, Portfolio), cada uma com seu README, e a identidade visual em `Marca/design-guide.md` [preenchida / pronta pra preencher]
 > - MAPA-DE-PASTAS.md — índice de tudo que foi criado, pra não se perder na estrutura
 > - [N] MCPs instalados / [N] anotados pra instalar depois
 > - `/atualizar` já instalado — use antes do indicador de contexto restante zerar numa conversa longa, pra não perder decisão importante no resumo automático
@@ -842,5 +830,6 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 - Se o usuário der respostas vagas, faz uma pergunta de acompanhamento antes de continuar
 - Gera os arquivos todos de uma vez no final, não um a um durante as perguntas
 - Após gerar, mostra a mensagem final resumida, não lista cada linha de cada arquivo
-- Esse setup é sobre operação do escritório (cliente, proposta, projeto, prospecção). Fora do bloco **Estrutura de pastas do escritório** (Perguntas 9 a 16, que são perguntas padrão pra todo aluno, incluindo Marca, Site, Conteudo e Portfolio), não ofereça perguntas extras de conteúdo/marca pessoal, só se o usuário trouxer isso primeiro
-- Nas perguntas de upload de arquivo (Perguntas 6, 10, 12 e 15), sempre seguir o mesmo padrão: arquivo em `dados/`, usuário informa o nome
+- Esse setup é sobre operação do escritório (cliente, proposta, projeto, prospecção). Fora do bloco **Estrutura de pastas do escritório** (Perguntas 9 a 13, que são perguntas padrão pra todo aluno, incluindo Site, Conteudo e Portfolio), não ofereça perguntas extras de conteúdo/marca pessoal, só se o usuário trouxer isso primeiro
+- Nas perguntas de upload de arquivo (Pergunta 6, 11 e 13), sempre seguir o mesmo padrão: arquivo em `dados/`, usuário informa o nome
+- Nunca use, cite ou preencha cor, logo, nome de arquivo ou qualquer outro dado de identidade visual que o aluno não tenha fornecido na conversa atual. Essa regra vale pra toda a skill, não só pra Pergunta 6: nada de "lembrar" ou assumir dado de marca de qualquer workspace, projeto ou cliente que porventura esteja acessível no ambiente. Sem dado fornecido nesta conversa, a única ação válida é perguntar e esperar
